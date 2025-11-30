@@ -1,0 +1,38 @@
+CMPE/CISC 365 Assignment 3
+
+Due December 1 at noon.
+
+You are to write a 'diff' utility that determines the smallest set of
+edits from one file to another, or from one string to another.
+
+You may work in groups of two.
+
+To compare two strings:
+
+    python3 diff.py asdzf asxdf
+
+To compare the sample 'diff-bad-example.py' file with the 'diff.py' file:
+
+    python3 diff.py diff-bad-example.py diff.py
+
+Modify the code in the two places where is says "[ YOUR CODE HERE ]"
+according to the comments above those places.
+
+To submit:
+
+   Submit a zip archive containing two files with EXACTLY THESE NAMES.
+
+     README.txt - containing the name, student number, and netID of each
+                  person working on the assignment.  Include here any
+                  comments you have for the TA. 
+
+     diff.py    - the modified code
+
+   YOU WILL LOSE MARKS IF YOU DO NOT SUBMIT TWO FILES WITH EXACTLY THE
+   NAMES ABOVE.
+
+   IN A GROUP OF TWO, ONLY ONE PERSON MAY SUBMIT THE ASSIGNMENT.  IF
+   YOUR GROUP SUBMITS TWO ASSIGNMENTS, YOU WILL LOSE MARKS.
+
+For marking, we will read your code for correctness, clarity, and
+quality, and we will run your code.
