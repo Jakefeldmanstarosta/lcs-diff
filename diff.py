@@ -101,7 +101,7 @@ def findLCS( p, q ):
 
         elif table[n-1][m] >= table[n][m-1]: #we move up if its value is greater than the left
             n -= 1
-            
+
         else: #otherwise we go to the left
             m -=1
     
@@ -217,4 +217,25 @@ lcs = [ (-1,-1) ] + lcs + [ (len(p),len(q)) ]
 #       >> v
 
 
-# [ YOUR CODE HERE ]
+pStart, qStart = lcs[0] #we start at (-1,-1) to simplify the loop 
+
+
+#between each common lcs pair, we iterate through and print the differences in the two strings/files
+for pEnd, qEnd in lcs[1:]: 
+    
+    for i in range (pStart +1, pEnd): #if there are any elements between the lcs pair indeces for p
+        print("<< ", p[i]) 
+
+    for i in range (qStart + 1, qEnd): #if there are any elements between the lcs pair indeces for q
+        print(" >>", q[i])
+
+    if pEnd < len(p) and qEnd < len(q): #print the common character/line if its not the last (len(p),len(q))
+        print("===", p[pEnd])
+
+    pStart = pEnd #move to the next common lcs pair
+    qStart = qEnd
+
+
+    
+        
+
