@@ -1,12 +1,17 @@
-Team of one:
-Jake Feldman Starosta
-20404515
-22hfry
+# diff.py
 
-Comments to TA:
-There is a difference in the printing of: 
-python diff.py abcdx123tvu 34ab67xtuv
-where it takes the v instead of the u for the lcs.
+A tiny Longest Common Subsequence–based diff tool.
 
-It is a correct but different lcs than the example.
-It is simply due to the order that we're comparing the values for the lcs.  
+## Features
+- Compare **strings** or **files**
+- Computes the **LCS** and uses it to align differences
+- Output markers:
+  - `<<` items only in the first input  
+  - `>>` items only in the second  
+  - `===` items shared
+- Prints the full DP table and LCS pairs for debugging
+
+## Usage
+```bash
+python diff.py <string1> <string2>
+python diff.py <file1> <file2>
