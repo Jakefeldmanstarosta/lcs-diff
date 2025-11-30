@@ -1,20 +1,4 @@
-# "diff" utility to compare files
-#
-# Usage: python diff.py <string1> <string1>
-#    or: python diff.py <file1> <file2>
-
-
 import sys, os
-
-
-
-# Given two lists, p and q, find the Longest Common Subsequence (LCS).
-# Return a list of of index pairs, where each pair is an index from p
-# and an index from q of the common subsequence.
-#
-# Example:  Given p = 'asdzf'  q = 'asxdf'
-#           the return value is [ (0,0), (1,1), (2,3), (4,4) ]
-#           which means p0=q0, p1=q1, p2=q3, p4=q4 in the LCS.
 
 def findLCS( p, q ):
 
@@ -68,28 +52,6 @@ def findLCS( p, q ):
                 else:
                     sys.stdout.write( ' %2d' % table[i][j] )
             sys.stdout.write( '\n' )
-
-    # return list of pairs of indices of matching elements
-    #
-    # If p[i] and q[i] are a pair of elements in the LCS, add
-    # (i-1,j-1) to the list.  The -1 is necessary because the table is
-    # offset by (+1,+1) due to the base-case row and column.
-    #
-    # From above:
-    #
-    #    Given p='asdzf' and q='asxdf' the return value is
-    #
-    #      [ (0,0), (1,1), (2,3), (4,4) ]
-    #
-    #    which means p0=q0, p1=q1, p2=q3, p4=q4 in the LCS.
-    #
-    # Another example:
-    #
-    #    Given p='abcdx123tvu' and q='34ab67xtuv' the return value is
-    #               
-    #      [ (0,2), (1,3), (4,6), (8,7), (10,8) ]
-    #
-    #    for the LCS 'abxtu'
 
     lcs = []
 
@@ -178,45 +140,6 @@ if True:
 
 lcs = [ (-1,-1) ] + lcs + [ (len(p),len(q)) ]
 
-# Display the edits.  Show each element of p and q in order with
-#
-#   === <element>      if the element is part of the LCS
-#   <<  <element>      if the element is only in p
-#    >> <element>      if the element is only in q
-#
-# For ===, only show the common element once.
-#
-# The elements must appear in the order that they appear in p and q.
-#
-# Example: The strings 'asdzf' and 'asxdf' should have output
-#
-#      === a
-#      === s
-#       >> x
-#      === d
-#      <<  z
-#      === f
-#
-# Example: The strings 'abcdx123tvu' and '34ab67xtuv' should have output
-#
-#       >> 3
-#       >> 4
-#      === a
-#      === b
-#      <<  c
-#      <<  d
-#       >> 6
-#       >> 7
-#      === x
-#      <<  1
-#      <<  2
-#      <<  3
-#      === t
-#      <<  v
-#      === u
-#       >> v
-
-
 pStart, qStart = lcs[0] #we start at (-1,-1) to simplify the loop 
 
 
@@ -234,8 +157,4 @@ for pEnd, qEnd in lcs[1:]:
 
     pStart = pEnd #move to the next common lcs pair
     qStart = qEnd
-
-
-    
-        
 
