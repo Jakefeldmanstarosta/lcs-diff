@@ -92,10 +92,21 @@ def findLCS( p, q ):
     #    for the LCS 'abxtu'
 
     lcs = []
-    
 
-    # [ YOUR CODE HERE ]
+    while table[n][m] != 0: #base case
+        if p[n] == q[m]: #in this case, we use the character (add indeces to the list)
+            lcs.append((n-1, m-1)) #-1 due to table offset
+            n -= 1 #move diagonally 
+            m -= 1
+
+        elif table[n-1][m] >= table[n][m-1]: #we move up if its value is greater than the left
+            n -= 1
+            
+        else: #otherwise we go to the left
+            m -=1
     
+    #since we append from the end to the start we must reverse the list to match the desired output
+    lcs.reverse()
 
     return lcs
 
